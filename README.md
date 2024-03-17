@@ -2,7 +2,7 @@
 
 In the study of document classification within a corpus, the probability of encountering a specific term in a particular document category is modeled using a Poisson distribution. The relevant equation is given by:
 
-
+<img src="https://raw.githubusercontent.com/nikbearbrown/AI4ED_Lex/main/Art/equation_1.png">
 
 Where:
 - \( n \) is the count of the term in question within a category (e.g., counts of 'neuroscience' in academic abstracts).
@@ -11,7 +11,7 @@ Where:
 
 To circumvent floating-point errors, the equation can be reformulated in logarithmic terms:
 
-
+<img src="https://raw.githubusercontent.com/nikbearbrown/AI4ED_Lex/main/Art/equation_2.png">
 
 For large values of \( n \), \( n! \) is computed using Stirling's approximation. Utilizing this approach, a collection of terms, termed "Discriminating Terms" for a subject, can be established. These terms function as linear discriminants and are employed to construct a likelihood statistic that integrates these features to categorize an abstract. This methodology extends the classical model by Mosteller and Wallace in their work on authorship disputes of The Federalist Papers.
 
