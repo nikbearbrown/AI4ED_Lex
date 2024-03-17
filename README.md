@@ -1,21 +1,22 @@
 # AI4ED Lex - A Lexical Database for Skills Mapping
 
-In the study of document classification within a corpus, the probability of encountering a specific term in a particular document category is modeled using a Poisson distribution. The relevant equation is given by:
+In analyzing job descriptions within a dataset, we can predict the occurrence of specific job-related terms, such as "Node.js" or "Photographer," by employing a Poisson distribution. The formula is as follows:
 
+(eq. 1) Poisson distribution: 
 <img src="https://raw.githubusercontent.com/nikbearbrown/AI4ED_Lex/main/Art/equation_1.png">
 
 Where:
-- \( n \) is the count of the term in question within a category (e.g., counts of 'Node.js' in job descriptions).
-- \( N \) represents the total number of terms found in that category.
-- \( f \) stands for the term's frequency across the entire corpus, estimated through random sampling of Wikipedia articles (i.e., term count in the corpus divided by the total term count in the corpus).
 
-To circumvent floating-point errors, the equation can be reformulated in logarithmic terms:
+- \( n \) denotes the frequency of the job-related term within a category of job descriptions.
+- \( N \) signifies the total count of all terms within the job description category.
+- \( f \) is the term's overall frequency within the entire corpus, which might be derived from a dataset such as Wikipedia articles for comparison (i.e., the frequency is the term count within Wikipedia divided by the total term count in Wikipedia).
 
+To mitigate potential floating-point errors, the Poisson equation can be expressed in logarithmic form:
+
+(eq. 2) 
 <img src="https://raw.githubusercontent.com/nikbearbrown/AI4ED_Lex/main/Art/equation_2.png">
 
-For large values of \( n \), \( n! \) is computed using Stirling's approximation. Utilizing this approach, a collection of terms, termed "Discriminating Terms" for a subject, can be established. These terms function as linear discriminants and are employed to construct a likelihood statistic that integrates these features to categorize an abstract. This methodology extends the classical model by Mosteller and Wallace in their work on authorship disputes of The Federalist Papers.
-
-
+For larger term counts \( n \), the factorial \( n! \) is approximated using Stirling's approximation. By applying this method, we identify a set of terms, referred to as "Discriminating Terms," that are indicative of job-related content. These terms act as linear discriminators and are used to generate a likelihood statistic, which when combined with other features, can classify a job description. This approach adapts the traditional discriminant analysis technique, similar to the one employed by Mosteller and Wallace in their investigation of authorship attribution for The Federalist Papers.
 
 
 
